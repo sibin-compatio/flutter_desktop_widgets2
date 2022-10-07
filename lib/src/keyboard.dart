@@ -81,14 +81,14 @@ class _InteractionKeyboardState extends State<InteractionKeyboard> {
     super.dispose();
   }
 
-  bool onKey(node, RawKeyEvent event) {
+  KeyEventResult onKey(node, RawKeyEvent event) {
     // if(event.isKeyPressed(LogicalKeyboardKey.backspace)) {
     // widget.onBackspace();
     // }
 
 
     if (!(event is RawKeyDownEvent || !(event is RawKeyUpEvent)))
-      return false;
+      return KeyEventResult.ignored;
 
 
     var i = event.logicalKey.keyId;
@@ -102,7 +102,7 @@ class _InteractionKeyboardState extends State<InteractionKeyboard> {
       _postDelayed(event, i, 500);
     }
 
-    return true;
+    return KeyEventResult.handled;
   }
 
   void _postDelayed(RawKeyEvent event, int i, int millis) {

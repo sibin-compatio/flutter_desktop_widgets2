@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: OutlineButton(
+        title: OutlinedButton(
           child: Text("Dump Tree"),
           onPressed: () {
             debugDumpFocusTree();
